@@ -20,10 +20,10 @@ def main():
         inputs=[{"role": "user", "content": user_query}]
     )
 
-    final_message = response.message
+
 
     print("\n Final report: ")
-    print(final_message)
+    print(response)
 
 
 

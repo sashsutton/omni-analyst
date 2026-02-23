@@ -17,15 +17,16 @@ def main():
 
     response = client.beta.conversations.start(
         agent_id= agent_id,
-        inputs=[{"role": "user", "content": f"f{user_query}"}]
+        inputs=[{"role": "user", "content": user_query}]
     )
 
-    print("\n--- FINAL REPORT ---")
-    print(response.choices[0].message.content)
-    if hasattr(response, 'tool_calls'):
-        # In a real app, you would iterate through tool_calls to find
-        # code_interpreter outputs and save them as PNGs.
-        print("\n[System]: Chart data detected in tool calls.")
+    final_message = response.message
+
+    print("\n Final report: ")
+    print(final_message)
+
+
+
 
 if __name__ == "__main__":
     main()
